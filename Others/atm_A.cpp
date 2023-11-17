@@ -10,17 +10,18 @@ int main() {
     int n;
 
 
-    cout << "[1] Deposit Money..." << endl;
-    cout << "[2] Withdraw Money..." << endl;
-    cout << "[3] Transfer Money..." << endl;
-    cout << "[4] All Transaction History..." << endl;
-    cout << "[5] Check balance..." << endl;
-    cout << "[6] Checking Your Recent Transactions..." << endl;
-    cout << "    Enter Option: ";
-    cin >> n;
-    cout << endl;
 
     for(int currentIndex = 0; currentIndex < MAX_TRANSACTIONS; currentIndex++) {
+        cout << "[1] Deposit Money..." << endl;
+        cout << "[2] Withdraw Money..." << endl;
+        cout << "[3] Transfer Money..." << endl;
+        cout << "[4] All Transaction History..." << endl;
+        cout << "[5] Check balance..." << endl;
+        cout << "[6] Checking Your Recent Transactions..." << endl;
+        cout << "[7] Exit" << endl; 
+        cout << "    Enter Option: ";
+        cin >> n;
+        cout << endl;
         switch (n) {
 
             case 1:
@@ -124,21 +125,17 @@ int main() {
 
                 cout << endl;
                 break;
+            case 7:
+                cout << "Thank you for banking with us!" << endl << endl;
+                break;
 
             default:
+                cout << "Invalid Option" << endl << endl;
                 break;
         }
-
-        cout << "[1] Deposit Money..." << endl;
-        cout << "[2] Withdraw Money..." << endl;
-        cout << "[3] Transfer Money..." << endl;
-        cout << "[4] Checking Your Recent Transactions..." << endl;
-        cout << "[5] Check balance..." << endl;
-        cout << "[6] All Transaction History..." << endl;
-        cout << "    Enter Option: ";
-        cin >> n;
-        cout << endl;
+        if(n == 7) {
+            break;
+        }
     }
-
     return 0;
 }
