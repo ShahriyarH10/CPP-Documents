@@ -1,14 +1,18 @@
 #include <iostream>
+#include <fstream>      //file stream
 using namespace std;
 
 int main() {
+    ofstream fout;
+    fout.open("MessData.xlsx");      //text file, ASCII
+
     int n, Uty;
     double FlatRent, RoomRent;
     cout << "Enter the Number of Person in Mess = ";
     cin >> n;
     cout << endl;
 
-    string MessMem[n] = {"Arefin", "Soykot", "Zahid", "Sujon", "Fazle", "Zia", "Abid", "Sohan"};
+    string MessMem[n] = {"Arefin", "Soykot", "Zahid", "Sujon", "Sohan"};
 
 
     double IndiMeal[n], TotalMeal = 0;
@@ -17,23 +21,17 @@ int main() {
     double MealRate, GaT, TotalAmount;
 
 
-    /*for(int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         cout << "Enter the name of Mess Member " << i+1 << " : ";
         cin >> MessMem[i];
     }
-    cout << endl;*/
+    cout << endl;
 
 
     // \u09F3 is Taka sign; Bangladeshi currency
-
     cout << "Enter Flat Rent: \u09F3";
     cin >> FlatRent;
-
     RoomRent = FlatRent / n;
-
-    cout << "Room Rent per Person: " << "\u09F3" << RoomRent << endl;
-    cout << endl;
-
 
     cout << "Enter Utility Bill per Person: ";
     cin >> Uty;
@@ -73,10 +71,9 @@ int main() {
 
     MealRate = TotalBazar / TotalMeal;
 
-    cout << "Mess Meal Rate = " << MealRate << endl;
-    cout << endl;
-
-
+    //send to file
+    fout << "Name" << "\t" << "Room Rent" << "\t" << "Khala Bill" << "\t" << "Utility" << "\t"<< "Total Bazar" << "\t" << "Total Meal" << "\t" << "Give(+) and Get(-)" << "\t" << "Pay Amount" << endl;
+    
     // if else is used inside for loop for Give and Take condition
     for(int i = 0; i < n; i++) {
 
@@ -101,9 +98,20 @@ int main() {
         }
 
         TotalAmount += Person[i];
+        //send to file
+        fout << MessMem[i] << "\t" << RoomRent << "\t" << KhalaBill[i] << "\t" << Uty << "\t" << IndiBazar[i] << "\t" << IndiMeal[i] << "\t" << GaT << "\t" << Person[i] << endl;
 
     }
+    fout << endl << endl;
+    fout << "Mess Meal Rate" << "\t" << MealRate << endl;
+    fout << "Total Utility Bill: \u09F3" << "\t" << Uty * n << endl;
+    fout << "Total Khala Bill: \u09F3" << "\t" << ToKhalaBi << endl;
+    fout << "Total Amount of\n Mess Member: \u09F3" << "\t" << TotalAmount << endl;
 
+    fout.close();
+
+    cout << "Room Rent per Person: " << "\u09F3" << RoomRent << endl;
+    cout << "Mess Meal Rate = " << MealRate << endl;
     cout << "Total Amount earn From Utility Bill: \u09F3" << Uty * n << endl;
     cout << "Total Amount earn From Khala Bill: \u09F3" << ToKhalaBi << endl;
     cout << "Total Amount earn From Mess Member: \u09F3" << TotalAmount << endl;
