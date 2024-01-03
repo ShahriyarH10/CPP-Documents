@@ -54,8 +54,6 @@ int main() {
         TotalBazar += IndiBazar[i];
     }
     cout << endl;
-    cout << "Total Bazar of Mess = " << "\u09F3" << TotalBazar << endl;
-    cout << endl;
 
 
     // Calculate the Total Meals
@@ -65,15 +63,12 @@ int main() {
         TotalMeal += IndiMeal[i];
     }
     cout << endl;
-    cout << "Total Meal of Mess = " << TotalMeal << endl;
-    cout << endl;
-
 
     MealRate = TotalBazar / TotalMeal;
 
     //send to file
-    fout << "Name" << "\t" << "Room Rent" << "\t" << "Khala Bill" << "\t" << "Utility" << "\t"<< "Total Bazar" << "\t" << "Total Meal" << "\t" << "Give(+) and Get(-)" << "\t" << "Pay Amount" << endl;
-    
+    fout << "Name" << "\t" << "Room Rent" << "\t" << "Khala Bill" << "\t" << "Utility" << "\t"<< "Total Bazar" << "\t" << "Total Meal" << "\t" << "Give(-) and Get(+)" << "\t" << "Pay Amount" << endl;
+
     // if else is used inside for loop for Give and Take condition
     for(int i = 0; i < n; i++) {
 
@@ -103,14 +98,18 @@ int main() {
 
     }
     fout << endl << endl;
+    fout << "Total Bazar of Mess = " << "\u09F3" << "\t" << TotalBazar << endl;
+    fout << "Total Meal of Mess = " << "\t" << TotalMeal << endl;
     fout << "Mess Meal Rate" << "\t" << MealRate << endl;
     fout << "Total Utility Bill: \u09F3" << "\t" << Uty * n << endl;
     fout << "Total Khala Bill: \u09F3" << "\t" << ToKhalaBi << endl;
-    fout << "Total Amount of\n Mess Member: \u09F3" << "\t" << TotalAmount << endl;
+    fout << "Total Amount of Mess Member: \u09F3" << "\t" << TotalAmount << endl;
 
     fout.close();
 
     cout << "Room Rent per Person: " << "\u09F3" << RoomRent << endl;
+    cout << "Total Bazar of Mess = " << "\u09F3" << "\t" << TotalBazar << endl;
+    cout << "Total Meal of Mess = " << TotalMeal << endl;
     cout << "Mess Meal Rate = " << MealRate << endl;
     cout << "Total Amount earn From Utility Bill: \u09F3" << Uty * n << endl;
     cout << "Total Amount earn From Khala Bill: \u09F3" << ToKhalaBi << endl;
